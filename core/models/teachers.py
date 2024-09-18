@@ -11,8 +11,7 @@ class Teacher(db.Model):
     updated_at = db.Column(db.TIMESTAMP(timezone=True), default=helpers.get_utc_now, nullable=False, onupdate=helpers.get_utc_now)
 
     @classmethod
-    def get_teachers(cls, auth_principal: AuthPrincipal):
-        assertions.assert_valid(auth_principal.principal_id is not None, 'You are not a principal')
+    def get_teachers(cls):
         return cls.query.all()
 
     def __repr__(self):
