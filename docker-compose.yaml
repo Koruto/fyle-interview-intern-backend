@@ -1,0 +1,9 @@
+services:
+  app:
+    build: .
+    container_name: fyle_backend_container
+    ports:
+      - '8000:8000'
+    volumes:
+      - .:/app
+    command: bash run.sh
