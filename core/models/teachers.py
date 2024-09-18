@@ -1,6 +1,5 @@
 from core import db
-from core.libs import helpers, assertions
-from core.apis.decorators import AuthPrincipal
+from core.libs import helpers
 
 
 class Teacher(db.Model):
