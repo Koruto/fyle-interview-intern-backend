@@ -25,6 +25,27 @@ def test_get_assignments_teacher_2(client, h_teacher_2):
         assert assignment['state'] in ['SUBMITTED', 'GRADED']
 
 
+def test_grade_assignment_success(client, h_teacher_2):
+    """
+    failure case: teacher grade not assigned correctly and state not updated
+    """
+    response = client.post(
+        '/teacher/assignments/grade',
+        headers=h_teacher_2,
+        json={
+            "id": 3,
+            "grade": "A"
+        }
+    )
+
+    assert response.status_code == 200
+    data = response.json['data']
+
+    assert data['state'] == 'GRADED'
+    assert data['grade'] == 'A'
+
+
+
 def test_grade_assignment_cross(client, h_teacher_2):
     """
     failure case: assignment 1 was submitted to teacher 1 and not teacher 2
