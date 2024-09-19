@@ -59,19 +59,25 @@ pytest -vvv -s tests/
 
 ## Docker
 
-### Building Image
+### Building the Image
+
+To build the Docker image, use the following command:
 
 ```
 docker-compose build
 ```
 
-### Running Image
+### Running the Container
+
+To start the Docker container, execute:
 
 ```
 docker-compose up
 ```
 
-### Run Tests
+### Running Tests
+
+To run tests within the Docker container, use:
 
 ```
 docker exec -it fyle_backend_container ./run_tests.sh
@@ -83,12 +89,8 @@ docker exec -it fyle_backend_container ./run_tests.sh --coverage
 docker exec -it fyle_backend_container ./run_tests.sh --cov-report
 ```
 
-## Python Tests
+**Note:** Ensure that the `run_tests.sh` script and `run.sh` scripts have execute permissions. You can set the appropriate permissions with the following command:
 
-### Initial Test Report
-
-![alt text](initial-test-report.png)
-
-### Initial Coverage Report
-
-![alt text](initial-coverage-report.png)
+```
+chmod +x run.sh run_tests.sh
+```
