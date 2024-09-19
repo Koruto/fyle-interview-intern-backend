@@ -74,10 +74,13 @@ docker-compose up
 ### Run Tests
 
 ```
-docker exec -it fyle_backend_container pytest -vvv -s tests/
+docker exec -it fyle_backend_container ./run_tests.sh
 
-# For test coverage report
-docker exec -it fyle_backend_container pytest --cov
+# For basic coverage report
+docker exec -it fyle_backend_container ./run_tests.sh --coverage
+
+# For detailed coverage report in HTML format...
+docker exec -it fyle_backend_container ./run_tests.sh --cov-report
 ```
 
 ## Python Tests
